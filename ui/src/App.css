@@ -1,0 +1,167 @@
+/* ---------- Variables & base ---------- */
+:root {
+  --fg: #0f172a;         /* texte principal */
+  --muted: #6b7280;      /* texte secondaire */
+  --bg: #f8fafc;         /* fond page */
+  --card: #ffffff;       /* fond des cartes/panels */
+  --line: #e5e7eb;       /* bordures claires */
+  --hover: #f1f5f9;      /* survol lignes */
+  --shadow: 0 4px 14px rgba(2, 6, 23, 0.06);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--fg);
+  background: var(--bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Layout global ---------- */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0 0 6px;
+  letter-spacing: .2px;
+}
+
+.muted { color: var(--muted); }
+
+/* ---------- Barre de contrôle ---------- */
+.controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 12px 0 20px;
+}
+
+.controls label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.controls select {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+/* Bouton (ex: Télécharger CSV) */
+.btn {
+  display: inline-block;
+  margin-left: auto;        /* pousse le bouton à droite quand il y a la place */
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  text-decoration: none;
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: var(--shadow);
+}
+.btn:hover { background: var(--hover); }
+
+/* ---------- Cartes de stats ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0,1fr));
+  gap: 12px;
+  margin: 6px 0 18px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+.card .k {
+  font-size: 12px;
+  color: var(--muted);
+}
+.card .v {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+/* ---------- Panneaux / Graphes ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+}
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+.panel h3 {
+  margin: 4px 0 8px;
+  font-size: 16px;
+}
+
+/* ---------- Tableau des lectures ---------- */
+h2 { margin-top: 24px; }
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden; /* garde les coins arrondis */
+  box-shadow: var(--shadow);
+}
+
+.tbl th, .tbl td {
+  padding: 10px;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tbl thead th {
+  background: #fbfdff;
+  font-weight: 700;
+}
+
+.tbl tbody tr:hover {
+  background: var(--hover);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  word-break: break-all;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 980px) {
+  .cards { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .grid  { grid-template-columns: 1fr; }
+  .btn   { margin-left: 0; }
+}
+
+@media (max-width: 640px) {
+  .cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+

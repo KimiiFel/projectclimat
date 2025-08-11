@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+
+# Hardhat
+blockchain/artifacts/
+blockchain/cache/
+
+# Vite build
+ui/dist/
+
+# Env & secrets
+**/.env
+gateway-server/db.json
+
+# Logs
+*.log
+logs/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
