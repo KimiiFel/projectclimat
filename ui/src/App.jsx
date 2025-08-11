@@ -149,7 +149,7 @@ export default function App() {
   return (
     <div className="wrap">
       <header>
-        <h1>Station météo — ancrages on-chain</h1>
+        <h1>Votre Météo Locale - Fiable & Transparente</h1>
         <p className="muted">Contrat: {CONTRACT}</p>
       </header>
 
